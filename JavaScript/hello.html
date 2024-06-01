@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      // 耗时操作：计算大量的斐波那契数
+      function fibonacci(n) {
+        if (n <= 1) return n;
+        return fibonacci(n - 1) + fibonacci(n - 2);
+      }
+
+      // 阻塞主线程
+      function blockMainThread() {
+        const start = Date.now();
+        // 计算斐波那契数，增加耗时任务
+        for (let i = 30; i < 40; i++) {
+          console.log(`fibonacci(${i}) = ${fibonacci(i)}`);
+        }
+        const end = Date.now();
+        console.log(`Blocking operation took ${end - start}ms`);
+      }
+
+      // 在页面加载时执行耗时操作
+      window.onload = blockMainThread;
+    </script>
+  </head>
+  <body>
+    <h1>hello</h1>
+  </body>
+</html>
