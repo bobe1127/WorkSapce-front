@@ -10,3 +10,7 @@ let entries = arr.entries();
 for (const [idx, item] of entries) {
   console.log(`for-of Array.Entries() item: idx: ${idx}, value: ${item}`);
 }
+// 只有数组有forEach方法
+arr.forEach((value, idx) => {
+  console.log(`forEach Array.Entries() item: idx: ${idx}, value: ${value}`);
+});
